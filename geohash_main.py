@@ -367,9 +367,9 @@ if __name__ == "__main__":
 
     display_encode_function(lat, lon, precision)
     display_decode_function('9q9hy5')
-    display_nearby_geohashes(lat, lon, 5000, precision)
-    display_geohashes_distance('9q9hvu', lat, lon, 5000, precision)
-    display_locations_data(100, lat, lon, 6)
-    display_nearby_locations(lat, lon, 5000, 6, 'cafe')
+    display_nearby_geohashes(lat, lon, 2000, precision)
+    display_geohashes_distance('9q9hvu', lat, lon, 2000, precision)
+    display_locations_data(50, lat, lon, 6)
+    display_nearby_locations(lat, lon, 2000, 6, 'cafe')
 
 
