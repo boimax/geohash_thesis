@@ -295,7 +295,7 @@ def print_colored_message(message, value, color=colored.green):
     puts(color(f'{message} {value}'))
 
 #1. ENCODING FUNCTION
-def display_encode_function(lat, lon, precision):
+def display_encode_function(lat, lon, precision=None):
     print_header("#1.ENCODE FUNCTION")
     start_time = time.time()
     geohash = Main.encode(lat, lon, precision)
