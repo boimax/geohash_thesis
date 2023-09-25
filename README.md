@@ -1,6 +1,6 @@
 # Geohash_Thesis
 
-As the proposed system primarily relies on geohash as the geospatial index for efficient location searches, this repo will provide a detailed explanation of the geohashing system implementation. This includes encoding and decoding geohashes, along with a function designed to identify nearby locations based on the geohashes.
+This repo will provide a detailed implementation of the geohashing system. This includes encoding and decoding geohashes, along with a function designed to identify nearby locations based on the geohashes.
 
 # GeoHash Utilities
 
