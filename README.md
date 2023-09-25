@@ -31,7 +31,7 @@ Calculates geohashes within a specified radius from a point.
 - **Parameters**: `latitude`, `longitude`, `radius`, `precision`
 - **Returns**: List of geohashes
 
-![Nearby Geohashes](nearby_geohashes.png)
+![Nearby Geohashes](./images/nearby_geohashes.png)
 
 ### 4. geohash_distance
 
