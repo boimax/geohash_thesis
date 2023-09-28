@@ -321,7 +321,7 @@ def display_nearby_geohashes(lat, lon, radius, precision):
     print_header("#3.GET NEARBY GEOHASHES FUNCTION")
     start_time = time.time()
     geohashes = Main.get_nearby_geohashes(lat, lon, radius, precision)
-    print_colored_message(f'Total {len(geohashes)} geohashes:\n', '\n'.join(geohashes))
+    print_colored_message(f'Total {len(geohashes)} geohashes within {radius}m of ({lat}, {lon}) coordinate (geohash: {Main.encode(lat, lon, 6)}):\n','\n'.join(geohashes))
     elapsed_time = time.time() - start_time
     print_colored_message('\nTotal execution time #3:', f'{elapsed_time} seconds', colored.red)
     puts('\n\n')
@@ -355,21 +355,22 @@ def display_nearby_locations(lat, lon, radius, precision, location_type):
     start_time = time.time()
     locations_data = Main.generate_locations_data(50, lat, lon, precision)
     nearby_locations = Main.get_nearby_locations(lat, lon, radius, precision, locations_data, location_type)
-    print_colored_message(f'{len(nearby_locations)} Targeted Nearby Locations:\n', nearby_locations)
+    print_colored_message(f'Total {len(nearby_locations)} {location_type} within {radius}m of current coordinate ({lat}, {lon}):\n', nearby_locations)
     elapsed_time = time.time() - start_time
     print_colored_message('\nTotal execution time #6:', f'{elapsed_time} seconds', colored.red)
     puts('\n\n')
 
 
 #MAIN 
+
 if __name__ == "__main__":
     lat, lon, precision = 37.422131, -122.084801, 6
 
     display_encode_function(lat, lon, precision)
-    display_decode_function('9q9hy5')
+    display_decode_function('9q9hvu')
     display_nearby_geohashes(lat, lon, 2000, precision)
-    display_geohashes_distance('9q9hvu', lat, lon, 2000, precision)
-    display_locations_data(50, lat, lon, 6)
+    display_geohashes_distance('9q9hvu', lat, lon, 2000, precision) #Auxiliary function
+    display_locations_data(50, lat, lon, 6) #Auxiliary function
     display_nearby_locations(lat, lon, 2000, 6, 'cafe')
 
 
