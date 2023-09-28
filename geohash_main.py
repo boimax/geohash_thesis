@@ -93,7 +93,12 @@ class Main:
         for i in range(geohash_len):
             char_idx = Main.BASE32.index(geohash[i])
             for j in range(5):
+                #isolate each bit from the char_idx.
                 mask = 1 << (4 - j)
+                """
+                For longitude (is_lon == True): If the bit is 1, it updates lon_min; if 0, it updates lon_max.          
+                For latitude (is_lon == False): If the bit is 1, it updates lat_min; if 0, it updates lat_max.
+                """
                 if is_lon:
                     if char_idx & mask:
                         lon_min = (lon_min + lon_max) / 2
@@ -168,15 +173,27 @@ class Main:
 
         height = grid_height[precision - 1] / 2
         width = grid_width[precision - 1] / 2
+        """
+        The lines calculate cell-heights and cell-widths within the search area's radius. 
+        This determines moves to check in each direction from the original geohash.
+        """
         lat_moves = math.ceil(radius / height)
         lon_moves = math.ceil(radius / width)
 
+        #generate a grid of points around the original latitude and longitude within a certain radius.
         points = []
         for i in range(lat_moves):
             temp_lat = height * i
             for j in range(lon_moves):
                 temp_lon = width * j
+                """
+                Checks if (temp_lat, temp_lon) is within the specified radius from (0, 0) as the grid of points is square, while the search area is a circle. 
+                This filters out points in the square corners but outside the circle.
+                """
                 if Main.in_circle_check(temp_lat, temp_lon, 0, 0, radius):  
+                    """
+                    Explore grid cells around the original point in all four quadrants (NE, NW, SE, SW).
+                    """
                     for x_cen, y_cen in [(temp_lat, temp_lon), (-temp_lat, temp_lon), (temp_lat, -temp_lon), (-temp_lat, -temp_lon)]:
                         lat, lon = Main.convert_to_latlon(y_cen, x_cen, latitude, longitude)
                         points.append((lat, lon))
