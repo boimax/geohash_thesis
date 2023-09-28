@@ -43,7 +43,7 @@ Calculates geohashes within a specified radius from a point.
 
 ### 4. geohash_distance
 
-Computes the distance between two geohashes.
+Computes the distance between two geohashes. (Auxiliary Function)
 
 - **Parameters**: `geohash1`, `geohash2`
 
@@ -52,7 +52,7 @@ Computes the distance between two geohashes.
 
 ### 5. generate_locations_data
 
-Produces mock location data around a central point.
+Produces mock location data around a central point. (Auxiliary Function)
 
 - **Parameters**: `size`, `central_lat`, `central_lon`, `precision`
 - **Returns**: List of mock locations
@@ -64,7 +64,7 @@ Produces mock location data around a central point.
 
 Retrieves locations within a specified radius from a point.
 
-- **Parameters**: `lat`, `lon`, `radius`, `precision`, `locations_data`, `location_type` (optional)
+- **Parameters**: `lat`, `lon`, `radius`, `precision`, `locations_data`, `location_type`
 - **Returns**: List of nearby locations
 
 ![Get Nearby Locations Result Input](./images/get_nearby_locations_input.png)
